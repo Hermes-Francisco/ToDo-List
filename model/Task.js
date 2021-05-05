@@ -1,9 +1,9 @@
 const { DataTypes, Model } = require('sequelize');
 const { sequelize } = require('../sequelize');
 
-class Tarefa extends Model {}
+class Task extends Model {}
 
-Tarefa.init({
+Task.init({
   id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -23,7 +23,7 @@ Tarefa.init({
   }
 }, {
   sequelize,
-  modelName: 'Tarefa'
+  modelName: 'Task'
 });
 
-module.exports = Tarefa;
+module.exports = Task;
