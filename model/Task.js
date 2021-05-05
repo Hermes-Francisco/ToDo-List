@@ -13,6 +13,10 @@ Task.init({
     type: DataTypes.STRING,
     allowNull: false
   },
+  details:{
+    type: DataTypes.STRING(510),
+    allowNull: true
+  },
   startDate: {
     type: DataTypes.DATE,
     allowNull: false
@@ -20,6 +24,10 @@ Task.init({
   endDate: {
     type: DataTypes.DATE,
     allowNull: true
+  },
+  completed: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
   }
 }, {
   sequelize,

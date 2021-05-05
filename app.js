@@ -1,6 +1,9 @@
 const express = require('express');
 const routes = require('./routes');
 const sequelize = require('./sequelize');
+const task = require('./model/task');
+task.sync({force: true});
+
 
 class App{
     constructor(){
