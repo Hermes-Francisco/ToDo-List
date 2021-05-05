@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('./routes');
+const sequelize = require('./sequelize')
 
 class App{
     constructor(){
@@ -14,6 +15,7 @@ class App{
 
     router(){
         this.app.use(routes);
+        this.sql = sequelize
     }
 }
 module.exports = new App().app;
