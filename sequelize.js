@@ -11,8 +11,8 @@ class database{
               });
               this.test();
         }catch(err){
-            console.log(err.message) 
-            process.exit()         
+          console.log(err.message) 
+          process.exit()         
         }
     }
 
