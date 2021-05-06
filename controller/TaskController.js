@@ -2,6 +2,10 @@ const Task = require('../model/Task');
 
 class TaskController{
 
+    constructor(){
+        Task.sync()
+    }
+
     async Index(req, res){
         const task = await Task.findAll()
         return res.status(200).json(task)
