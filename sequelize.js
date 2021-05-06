@@ -7,7 +7,10 @@ class database{
             this.sequelize = new Sequelize(sql.database, sql.username, sql.password, {
                 host: sql.host,
                 dialect: sql.dialect,
-                logging: false
+                logging: false,
+                define: {
+                  timestamps: false
+                }
               });
               this.test();
         }catch(err){
