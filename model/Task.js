@@ -17,12 +17,8 @@ Task.init({
     type: DataTypes.STRING(510),
     allowNull: true
   },
-  startDate: {
-    type: DataTypes.DATE,
-    allowNull: false
-  },
-  endDate: {
-    type: DataTypes.DATE,
+  order:{
+    type: DataTypes.INTEGER,
     allowNull: true
   },
   completed: {
