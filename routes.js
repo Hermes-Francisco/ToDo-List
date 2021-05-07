@@ -4,7 +4,7 @@ const Pages = require('./pages')
 const routes = new Router();
 
 routes.get('/', Pages.Index);
-routes.get('/view/:file', Pages.Components)
+routes.get('/view/:file', Pages.Components);
 
 routes.get('/todo/', Task.Index);
 routes.get('/show/:taskId', Task.Show);
