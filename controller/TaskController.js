@@ -75,7 +75,7 @@ class TaskController{
     }
 
     async Delete(req, res){
-        const { id, completed } = req.body;
+        const { id, task, completed } = req.body;
 
         if(completed){
             
@@ -90,11 +90,7 @@ class TaskController{
             return res.status(200).json({ "message":"todas tarefas cumpridas foram deletadas" })
         }
 
-        await Task.destroy({ 
-            where:{ 
-                id 
-            }
-        }).catch((err)=>{
+        await task.destroy().catch((err)=>{
             return res.status(500).json({"erro": err.message})
         });
 
