@@ -4,9 +4,7 @@ class Reorder{
 
     async toComplete(req, res, next){
         const { id, completed } = req.body;
-
         let task = await Task.findByPk(id)
-
         req.body.task = task
     
         if(!completed)return next()
@@ -30,10 +28,7 @@ class Reorder{
 
         if(completed)return next();
 
-        console.log('test1')
-
         let task = await Task.findByPk(id)
-
         req.body.task = task;
 
         if(!task ||task.completed)return next();
