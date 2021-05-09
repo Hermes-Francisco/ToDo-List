@@ -53,29 +53,32 @@ class TaskController{
     }
 
     async Update(req, res){
-        const { id, taskName, details, completed } = req.body;
-        var { order } = req.body;
+        const { task, taskName, details, completed } = req.body;
+        let { order } = req.body;
 
         if(completed)order = null;
+        if(completed === false && task.completed){
+            order = await Task.count({
+                where:{
+                    completed:false
+                }
+            }) + 1
+        }
 
-        let task = await Task.update({
+        await task.update({
             taskName,
             details,
             order,
             completed
-        }, {
-            where: { 
-                id 
-            }
         }).catch((err)=>{
             return res.status(500).json({"erro" : err.message});
         })
 
-        return res.status(200).json(task);
+        return res.status(200).json({"message":"Tarefa atualizada"});
     }
 
     async Delete(req, res){
-        const { id, task, completed } = req.body;
+        const { task, completed } = req.body;
 
         if(completed){
             
