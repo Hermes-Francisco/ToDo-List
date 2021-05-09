@@ -22,6 +22,9 @@ class TaskController{
         }
 
         const task = await Task.findAll({
+            where:{
+                completed: false
+            },
             order:[['order', 'asc']]
         });
         return res.status(200).json(task);
