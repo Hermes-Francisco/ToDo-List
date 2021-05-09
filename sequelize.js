@@ -9,7 +9,7 @@ class database{
                 dialect: sql.dialect,
                 logging: false,
                 define: {
-                  timestamps: false
+                  timestamps: true
                 }
               });
               this.test();

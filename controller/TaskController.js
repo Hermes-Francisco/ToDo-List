@@ -3,12 +3,28 @@ const Task = require('../model/Task');
 class TaskController{
 
     constructor(){
-        Task.sync()
+        Task.sync({force: false})
     }
 
     async Index(req, res){
-        const task = await Task.findAll()
-        return res.status(200).json(task)
+        const { completed } = req.body;
+
+        if(completed){
+            const task = await Task.findAll({
+                where:{
+                    completed
+                },
+                order: [['updatedAt', 'desc']]
+            }).catch((err)=>{
+                return res.status(500).json({"erro": err.message})
+            })
+            return res.status(200).json(task);
+        }
+
+        const task = await Task.findAll({
+            order:[['order', 'asc']]
+        });
+        return res.status(200).json(task);
     }
 
     async Show(req, res){
@@ -18,13 +34,14 @@ class TaskController{
     }
 
     async Create(req, res){
-        const { taskName, details, startDate, endDate } = req.body;
+        const { taskName, details } = req.body;
+
+        let order = await Task.count() + 1;
         
         let task = await Task.create({
             taskName,
             details,
-            startDate,
-            endDate
+            order
         }).catch((err)=>{
             return res.status(500).json({"erro" : err.message});
         });
@@ -33,13 +50,15 @@ class TaskController{
     }
 
     async Update(req, res){
-        const { id, taskName, details, startDate, endDate, completed } = req.body;
+        const { id, taskName, details, completed } = req.body;
+        var { order } = req.body;
+
+        if(completed)order = null;
 
         let task = await Task.update({
             taskName,
             details,
-            startDate,
-            endDate,
+            order,
             completed
         }, {
             where: { 
