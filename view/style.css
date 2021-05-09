@@ -11,16 +11,45 @@ body{
     left:0;
     z-index:1; 
     border: 0;
-    color:rgba(255, 255, 255, 0.856)
 }
-#navbar, h3{
-    display: inline;
+
+.tab{
+    display: inline-block;
+    height: 100%;
+    width: fit-content; 
+    color:azure
 }
+.tab_text{
+    margin-top: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#todo_tab{
+    margin-left: 5px;
+}
+
+.selected_tab{
+    background-color: rgb(236, 238, 238);
+    color:black
+}
+
 #corpo{
     width: 100vw;
     height: calc(100vh - 30px);
-    background-color: rgb(0, 255, 191);
+    background-color: #191970;
     position: absolute;
     left: 0;
     top: 30px;
+}
+
+.task{
+    margin: 0 auto;
+    background-color: white;
+    max-width: 500px;
+    height: fit-content;
+}
+
+.details{
+    text-align: center;
 }
