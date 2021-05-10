@@ -92,14 +92,14 @@ class TaskController{
                 return res.status(500).json({"erro": err.message});
             });
 
-            return res.status(200).json({ "message":"todas tarefas cumpridas foram deletadas" })
+            return res.status(200).json({ "message":"Todas tarefas cumpridas foram deletadas" })
         }
 
         await task.destroy().catch((err)=>{
             return res.status(500).json({"erro": err.message})
         });
 
-        return res.status(200).json({ "message":"tarefa deletada" })
+        return res.status(200).json({ "message":"Tarefa deletada" })
     }
 }
 module.exports = new TaskController();
