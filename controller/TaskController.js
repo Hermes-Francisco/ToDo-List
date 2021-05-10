@@ -3,7 +3,7 @@ const Task = require('../model/Task');
 class TaskController{
 
     constructor(){
-        Task.sync({force: false})
+        Task.sync({force: true})
     }
 
     async Index(req, res){

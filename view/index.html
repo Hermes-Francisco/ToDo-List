@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ToDo List</title>
+        <link rel="stylesheet" href="/view/style.css">
+        <meta name='viewport' content='width=device-width' />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+        </script>
+
+    </head>
+    <body>
+        <div id="navbar">
+            <div id="navcontent">
+                <div id="todo_tab" class="tab selected_tab">
+                    <h3 class="tab_text">A fazer</h3>
+                </div>
+                <div id="done_tab" class="tab">
+                    <h3 class="tab_text">Cumpridas</h3>
+                </div>
+                <button id="adicionar">+ Adicionar</button>
+            </div>
+
+        </div>
+        <div id="corpo" style="display: none;">
+            <div class="task">
+                <div class = "task_header">
+                    <div class="task_number">
+                        <a href="#">1</a>
+                    </div>
+                    <div class="task_title">
+                        <h1>Hello teste</h1>
+                    </div>
+                </div>
+                <hr>
+                <div class="details_button">
+                    <a href="#">Se você está vendo isso, algo está errado</a>
+                </div>
+            </div>
+
+        <div id="detalhes" style="display: none;">
+            <div class = "task task_details">
+                <div class="task_header">
+                    <h1 class="title_input">Texto</h1>
+                    <h1 class="fechar">X</h1>
+                </div>
+                <div class="details_input">
+                    <text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum mi neque, id porta nibh molestie eu. Integer vestibulum, orci vitae vehicula blandit, massa ligula tristique odio, at ullamcorper massa ipsum a augue. Praesent porttitor tortor gravida, faucibus purus id, volutpat nulla. Duis velit diam, tempor ac sollicitudin ac, commodo vel mi. Morbi sodales risus neque, id imperdiet lectus tristique rhoncus. Maecenas ornare a eros id dictum. Nullam volutpat ligula dui. Etiam pulvinar, nisl sed imperdiet ullamcorper, nisl mi blandit dolor, et pellentesque nisl urna at massa. Etiam at semper orci. Praesent tempus massa aliquet, tempor odio non, ultricies nisl. Pellentesque posuere sagittis diam, vel placerat ante feugiat tempus. Proin maximus rutrum nisi non aliquet. Mauris varius risus eu turpis sagittis tristique. Vivamus bibendum nisi iaculis libero molestie, pretium sodales nunc facilisis.</text>
+                </div>
+                <hr>
+                <div class="options">
+                    <button class="op_button cumprida">Foi Concluida</button>
+                    <button class="op_button editar">Editar</button>
+                    <button class="op_button excluir">Excluir</button>
+                </div>               
+            </div>
+        </div>
+
+        <div id="editar" style="display: none;">
+            <div class = "task task_details">
+                <form onsubmit="update()">
+                    <input class="title_input" id="title_edit" type="text" name="taskName" required/>
+                    <textarea class="details_input" id="details_edit" name="details"></textarea>
+                    <hr>
+                    <div class="options">
+                        <input type="submit" class="op_button cumprida" value="Salvar" />
+                        <button class="op_button nao_cumprida">Cancelar</button>
+                    </div> 
+                </form>              
+            </div>
+        </div>
+
+        <div id="criar"  style="display: none;">
+            <div class = "task task_details">
+                <form onsubmit="create()">
+                    <input class="title_input" placeholder="Título da tarefa" id="title_create" type="text" name="taskName" required/>
+                    <textarea class="details_input" placeholder="Detalhes" id="details_create" name="details"></textarea>
+                    <hr>
+                    <div class="options">
+                        <input type="submit" class="op_button cumprida" value="Adicionar" />
+                        <button class="op_button nao_cumprida">Cancelar</button>
+                    </div> 
+                </form>              
+            </div>
+        </div>
+
+        <div id="carregando" style="display: none">
+            <div class = "carregando">
+                <img src="/view/carregando.gif" />            
+            </div>
+        </div>
+
+        <div id="mensagem" style="display: none;">
+            <div class = "task task_details message">
+                <div class="details_input msg_text">
+                    <text id="msg_text">aaaaaaaaaaaaaaaaaaa</text>
+                </div>
+                
+                <hr>
+                <div class="options">
+                    <button class="op_button editar">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="conf_excluir" style="display: none;">
+            <div class = "task task_details message">
+                <div class="details_input msg_text">
+                    <text id="msg_text">Deseja mesmo excluir?</text>
+                </div> 
+                <hr>
+                <div class="options">
+                    <button class="op_button excluir">Sim</button>
+                    <button class="op_button cumprida">Não</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="/view/logic.js"></script>
+
+    </body>
+</html>
