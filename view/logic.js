@@ -1,3 +1,5 @@
+var done = false;
+
 function main(show){
     if(show){
         $("#navcontent").show();
@@ -9,6 +11,9 @@ function main(show){
         $("#carregando").hide();
         $("#mensagem").hide();
         $("#conf_excluir").hide();
+
+        if(done)done_index();
+        else ToDo_index();
         return;
     }
     $("#navcontent").hide();
@@ -17,7 +22,7 @@ function main(show){
 }
 main(true);
 
-$(".tab").click(function(i){
+$(".tab").click(function(){
     $(".tab").removeClass("selected_tab");
     $(this).addClass("selected_tab");
 });
@@ -25,22 +30,28 @@ $(".tab").click(function(i){
 $("#todo_tab").click(()=>{
     ToDo_index();
     $("#adicionar").show();
+    done=false;
 })
 
 $("#done_tab").click(()=>{
     done_index();
     $("#adicionar").hide();
+    done=true;
+});
+
+$("#OK").click(()=>{
+    main(true);
 })
 
 function ToDo_index(){
-    $("#corpo").empty();
     $.getJSON("/todo/false", function(data){
+        $("#corpo").empty();
         if(data[0]){
             for(i = 0; i < data.length; i++){
                 $("#corpo").append(
                 '<div class="task">'+
                     '<div class = "task_header">'+
-                        '<div class="task_number" id="number'+i+'">'+
+                        '<div class="task_number" id="'+i+'">'+
                             '<a href="#">'+data[i].order+'</a>'+
                         '</div>'+
                         '<div class="task_title">'+
@@ -70,11 +81,10 @@ function ToDo_index(){
 }
 
 function done_index(){
-    $("#corpo").empty();
     $.getJSON("/todo/true", function(data){
-
+        $("#corpo").empty();
+        
         if(data[0]){
-
 
             $("#corpo").append(
                 '<div class = "task message">'+
@@ -114,4 +124,6 @@ function done_index(){
     })
 }
 
-ToDo_index();
+$("form").submit(function(e) {
+    e.preventDefault();
+})

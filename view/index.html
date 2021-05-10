@@ -40,19 +40,20 @@
                     <a href="#">Se você está vendo isso, algo está errado</a>
                 </div>
             </div>
-
+        </div>
         <div id="detalhes" style="display: none;">
             <div class = "task task_details">
                 <div class="task_header">
-                    <h1 class="title_input">Texto</h1>
-                    <h1 class="fechar">X</h1>
+                    <h1 id="detalhes_titulo"class="title_input">Texto</h1>
+                    <h1 class="fechar" id="fechar_detalhes">X</h1>
                 </div>
                 <div class="details_input">
-                    <text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum mi neque, id porta nibh molestie eu. Integer vestibulum, orci vitae vehicula blandit, massa ligula tristique odio, at ullamcorper massa ipsum a augue. Praesent porttitor tortor gravida, faucibus purus id, volutpat nulla. Duis velit diam, tempor ac sollicitudin ac, commodo vel mi. Morbi sodales risus neque, id imperdiet lectus tristique rhoncus. Maecenas ornare a eros id dictum. Nullam volutpat ligula dui. Etiam pulvinar, nisl sed imperdiet ullamcorper, nisl mi blandit dolor, et pellentesque nisl urna at massa. Etiam at semper orci. Praesent tempus massa aliquet, tempor odio non, ultricies nisl. Pellentesque posuere sagittis diam, vel placerat ante feugiat tempus. Proin maximus rutrum nisi non aliquet. Mauris varius risus eu turpis sagittis tristique. Vivamus bibendum nisi iaculis libero molestie, pretium sodales nunc facilisis.</text>
+                    <text id="detalhes_texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum mi neque, id porta nibh molestie eu. Integer vestibulum, orci vitae vehicula blandit, massa ligula tristique odio, at ullamcorper massa ipsum a augue. Praesent porttitor tortor gravida, faucibus purus id, volutpat nulla. Duis velit diam, tempor ac sollicitudin ac, commodo vel mi. Morbi sodales risus neque, id imperdiet lectus tristique rhoncus. Maecenas ornare a eros id dictum. Nullam volutpat ligula dui. Etiam pulvinar, nisl sed imperdiet ullamcorper, nisl mi blandit dolor, et pellentesque nisl urna at massa. Etiam at semper orci. Praesent tempus massa aliquet, tempor odio non, ultricies nisl. Pellentesque posuere sagittis diam, vel placerat ante feugiat tempus. Proin maximus rutrum nisi non aliquet. Mauris varius risus eu turpis sagittis tristique. Vivamus bibendum nisi iaculis libero molestie, pretium sodales nunc facilisis.</text>
                 </div>
                 <hr>
                 <div class="options">
-                    <button class="op_button cumprida">Foi Concluida</button>
+                    <button id="concluir" class="op_button cumprida">Foi Concluida</button>
+                    <button id="desconcluir" style="display: none;" class="op_button nao_cumprida">A fazer</button>
                     <button class="op_button editar">Editar</button>
                     <button class="op_button excluir">Excluir</button>
                 </div>               
@@ -73,15 +74,15 @@
             </div>
         </div>
 
-        <div id="criar"  style="display: none;">
+        <div id="criar" style="display: none;">
             <div class = "task task_details">
-                <form onsubmit="create()">
+                <form onsubmit="create()" action="">
                     <input class="title_input" placeholder="Título da tarefa" id="title_create" type="text" name="taskName" required/>
                     <textarea class="details_input" placeholder="Detalhes" id="details_create" name="details"></textarea>
                     <hr>
                     <div class="options">
                         <input type="submit" class="op_button cumprida" value="Adicionar" />
-                        <button class="op_button nao_cumprida">Cancelar</button>
+                        <button id="criar_cancela" class="op_button nao_cumprida">Cancelar</button>
                     </div> 
                 </form>              
             </div>
@@ -96,12 +97,12 @@
         <div id="mensagem" style="display: none;">
             <div class = "task task_details message">
                 <div class="details_input msg_text">
-                    <text id="msg_text">aaaaaaaaaaaaaaaaaaa</text>
+                    <h3 id="msg_text">aaaaaaaaaaaaaaaaaaa</h3>
                 </div>
                 
                 <hr>
                 <div class="options">
-                    <button class="op_button editar">OK</button>
+                    <button class="op_button editar" id="OK">OK</button>
                 </div>
             </div>
         </div>
@@ -109,7 +110,7 @@
         <div id="conf_excluir" style="display: none;">
             <div class = "task task_details message">
                 <div class="details_input msg_text">
-                    <text id="msg_text">Deseja mesmo excluir?</text>
+                    <h3 id="msg_text">Deseja mesmo excluir?</h3>
                 </div> 
                 <hr>
                 <div class="options">
@@ -120,6 +121,8 @@
         </div>
 
         <script src="/view/logic.js"></script>
+        <script src="/view/criar.js"></script>
+        <script src="/view/detalhes.js"></script>
 
     </body>
 </html>

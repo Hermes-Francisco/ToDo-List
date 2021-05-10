@@ -26,6 +26,8 @@ class TaskController{
                 completed: false
             },
             order:[['order', 'asc']]
+        }).catch((err)=>{
+            return res.status(500).json({"erro": err.message})
         });
         return res.status(200).json(task);
     }
@@ -41,7 +43,7 @@ class TaskController{
 
         let order = await Task.count() + 1;
         
-        let task = await Task.create({
+        await Task.create({
             taskName,
             details,
             order
@@ -49,7 +51,7 @@ class TaskController{
             return res.status(500).json({"erro" : err.message});
         });
         
-        return res.status(200).json(task)
+        return res.status(200).json({"message":"Tarefa criada com sucesso"})
     }
 
     async Update(req, res){
