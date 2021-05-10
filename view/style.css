@@ -1,5 +1,6 @@
 body{
     font-family: Calibri;
+    background-color: #191970;
 }
 
 hr{
@@ -38,10 +39,9 @@ hr{
     color:black
 }
 
-#corpo{
+#corpo, #detalhes{
     width: 100vw;
     height: calc(100vh - 30px);
-    background-color: #191970;
     position: absolute;
     left: 0;
     top: 30px;
@@ -85,21 +85,64 @@ hr{
     overflow-x: auto;
 }
 
-#detalhes{
-    width: 100vw;
-    height: calc(100vh - 30px);
-    background-color: #191970;
-    position: absolute;
-    left: 0;
-    top: 30px;
-    overflow: auto;
-}
-
 .task_details{
     top:25vh;
 }
 .title_input{
+    flex:10;
     position: relative;
-    width: 90%;
+    width: 89%;
+    margin-left:10px;
     font-size: 30px;
+    overflow-x: auto;
+}
+
+.fechar{
+    flex: 1;
+    display: inline;
+    margin-left:10%;
+    margin-right: 10px;
+    position: relative;
+    right:0;
+}
+
+.details_input{
+    margin:0 auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    max-height: 250px;
+    overflow:auto;
+    text-align: justify;
+    font-size: 18px;
+}
+
+.options{
+    display: flex;
+}
+
+.op_button{
+    flex:1;
+    height:30px;
+    margin: 5px;
+    border:0;
+    border-radius: 5px;
+    font-weight: bold;
+    color:rgb(236, 238, 238)
+}
+
+.cumprida{
+    background-color:green;
+}
+
+.editar{
+    background-color:royalblue;
+}
+
+.excluir{
+    background-color:red;
+}
+
+.nao_cumprida{
+    background-color: rgb(92, 92, 92);
 }
