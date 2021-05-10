@@ -5,6 +5,12 @@
         <link rel="stylesheet" href="/view/style.css">
         <meta name='viewport' content='width=device-width' />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+        </script>
+
     </head>
     <body>
         <div id="navbar">
@@ -103,9 +109,9 @@
             </div>
         </div>
 
-        <div id="mensagem" style="">
+        <div id="mensagem" style="display: none;">
             <div class = "task task_details message">
-                <div class="details_input">
+                <div class="details_input msg_text">
                     <text id="msg_text">aaaaaaaaaaaaaaaaaaa</text>
                 </div>
                 
@@ -116,7 +122,20 @@
             </div>
         </div>
 
+        <div id="conf_excluir" style="display: none;">
+            <div class = "task task_details message">
+                <div class="details_input msg_text">
+                    <text id="msg_text">Deseja mesmo excluir?</text>
+                </div> 
+                <hr>
+                <div class="options">
+                    <button class="op_button excluir">Sim</button>
+                    <button class="op_button cumprida">Não</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="/view/logic.js"></script>
         
     </body>
-    <script src="/view/logic.js"></script>
 </html>

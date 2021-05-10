@@ -7,12 +7,12 @@ class TaskController{
     }
 
     async Index(req, res){
-        const { completed } = req.body;
+        const { completed } = req.params;
 
-        if(completed){
+        if(completed == "true"){
             const task = await Task.findAll({
                 where:{
-                    completed
+                    completed: true
                 },
                 order: [['updatedAt', 'desc']]
             }).catch((err)=>{
