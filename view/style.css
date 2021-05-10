@@ -84,3 +84,22 @@ hr{
     position: relative;
     overflow-x: auto;
 }
+
+#detalhes{
+    width: 100vw;
+    height: calc(100vh - 30px);
+    background-color: #191970;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    overflow: auto;
+}
+
+.task_details{
+    top:25vh;
+}
+.title_input{
+    position: relative;
+    width: 90%;
+    font-size: 30px;
+}
