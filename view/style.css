@@ -2,6 +2,10 @@ body{
     font-family: Calibri;
 }
 
+hr{
+    margin-bottom: 0;
+}
+
 #navbar{
     position: fixed; 
     background-color: black;
@@ -41,15 +45,42 @@ body{
     position: absolute;
     left: 0;
     top: 30px;
+    overflow: auto;
 }
 
 .task{
+    position: relative;
+    top:10px;
     margin: 0 auto;
+    margin-bottom: 20px;
     background-color: white;
     max-width: 500px;
     height: fit-content;
 }
 
-.details{
+.task_header{
+    display: flex;
+}
+
+.details_button{
     text-align: center;
+    vertical-align: middle;
+    height: 25px;
+}
+
+.details_button a{
+    vertical-align: middle;
+}
+
+.task_number{
+    flex: 1;
+    margin: 20px;
+    height: 100%;
+    vertical-align: middle;
+    font-size: 30px;
+}
+.task_title{
+    flex:20;
+    position: relative;
+    overflow-x: auto;
 }
