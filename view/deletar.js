@@ -1,9 +1,20 @@
+var excluir_concluida = false;
+
 $("#excluir_tarefa").click(function(){
     $("#excluir_msg").empty();
     $("#excluir_msg").append('Deseja mesmo excluir a tarefa "'+nome+'"?');
     $("#detalhes").hide();
     $("#conf_excluir").show();
+    excluir_concluida = false;
 })
+
+function excluir_tudo(){
+    $("#excluir_msg").empty();
+    $("#excluir_msg").append('Deseja mesmo excluir todas tarefas cumpridas?');
+    $("#corpo").hide();
+    $("#conf_excluir").show();
+    excluir_concluida = true;
+}
 
 $("#sim").click(function(){
     $("#conf_excluir").hide();
@@ -26,10 +37,16 @@ $("#sim").click(function(){
         $("#carregando").hide();
         $("#mensagem").show();
     }
-    
-    xhr.send(JSON.stringify({
-        "id":id,
-    }));
+    if(excluir_concluida){
+        xhr.send(JSON.stringify({
+            "completed":true
+        }));
+    }else{
+        xhr.send(JSON.stringify({
+            "id":id,
+        }));
+    }
+
 })
 
 $("#nao").click(()=>{

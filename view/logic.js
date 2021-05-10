@@ -83,13 +83,12 @@ function ToDo_index(){
 function done_index(){
     $.getJSON("/todo/true", function(data){
         $("#corpo").empty();
-        
         if(data[0]){
 
             $("#corpo").append(
                 '<div class = "task message">'+
                 '<div class="options">'+
-                    '<button id="excluir_tudo" class="op_button excluir">Excluir todas tarefas cumpridas</button>'+
+                    '<button onclick="excluir_tudo()" id="excluir_tudo" class="op_button excluir">Excluir todas tarefas cumpridas</button>'+
                 '</div>'+
                 '</div>')
 

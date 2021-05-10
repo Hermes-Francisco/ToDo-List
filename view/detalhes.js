@@ -1,5 +1,6 @@
 var id=null;
 var nome=null;
+var texto = null;
 
 function seeMore(taskId){
 
@@ -13,6 +14,7 @@ function seeMore(taskId){
         nome = data.taskName;
         $("#detalhes_texto").empty();
         $("#detalhes_texto").append(data.details);
+        texto = data.details;
 
         if(data.completed){
             $("#concluir").hide();

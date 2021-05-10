@@ -32,27 +32,27 @@
                         <a href="#">1</a>
                     </div>
                     <div class="task_title">
-                        <h1>Hello teste</h1>
+                        <h1></h1>
                     </div>
                 </div>
                 <hr>
                 <div class="details_button">
-                    <a href="#">Se você está vendo isso, algo está errado</a>
+                    <a href="#"></a>
                 </div>
             </div>
         </div>
         <div id="detalhes" style="display: none;">
             <div class = "task task_details">
                 <div class="task_header">
-                    <h1 id="detalhes_titulo"class="title_input">Texto</h1>
+                    <h1 id="detalhes_titulo"class="title_input"></h1>
                     <h1 class="fechar" id="fechar_detalhes">X</h1>
                 </div>
                 <div class="details_input">
-                    <text id="detalhes_texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam bibendum mi neque, id porta nibh molestie eu. Integer vestibulum, orci vitae vehicula blandit, massa ligula tristique odio, at ullamcorper massa ipsum a augue. Praesent porttitor tortor gravida, faucibus purus id, volutpat nulla. Duis velit diam, tempor ac sollicitudin ac, commodo vel mi. Morbi sodales risus neque, id imperdiet lectus tristique rhoncus. Maecenas ornare a eros id dictum. Nullam volutpat ligula dui. Etiam pulvinar, nisl sed imperdiet ullamcorper, nisl mi blandit dolor, et pellentesque nisl urna at massa. Etiam at semper orci. Praesent tempus massa aliquet, tempor odio non, ultricies nisl. Pellentesque posuere sagittis diam, vel placerat ante feugiat tempus. Proin maximus rutrum nisi non aliquet. Mauris varius risus eu turpis sagittis tristique. Vivamus bibendum nisi iaculis libero molestie, pretium sodales nunc facilisis.</text>
+                    <text id="detalhes_texto"></text>
                 </div>
                 <hr>
                 <div class="options">
-                    <button id="concluir" class="op_button cumprida">Foi Concluida</button>
+                    <button id="concluir" class="op_button cumprida">Foi Cumprida</button>
                     <button id="desconcluir" style="display: none;" class="op_button nao_cumprida">A fazer</button>
                     <button id="editar_tarefa" class="op_button editar">Editar</button>
                     <button id="excluir_tarefa" class="op_button excluir">Excluir</button>
@@ -63,12 +63,12 @@
         <div id="editar" style="display: none;">
             <div class = "task task_details">
                 <form onsubmit="update()">
-                    <input class="title_input" id="title_edit" type="text" name="taskName" required/>
-                    <textarea class="details_input" id="details_edit" name="details"></textarea>
+                    <input class="title_input" id="title_edit" type="text" name="taskName" placeholder="Título" required/>
+                    <textarea class="details_input" id="details_edit" name="details" placeholder="Detalhes"></textarea>
                     <hr>
                     <div class="options">
                         <input type="submit" class="op_button cumprida" value="Salvar" />
-                        <button class="op_button nao_cumprida">Cancelar</button>
+                        <button id="cancelar" class="op_button nao_cumprida">Cancelar</button>
                     </div> 
                 </form>              
             </div>
@@ -97,7 +97,7 @@
         <div id="mensagem" style="display: none;">
             <div class = "task task_details message">
                 <div class="details_input msg_text">
-                    <h3 id="msg_text">aaaaaaaaaaaaaaaaaaa</h3>
+                    <h3 id="msg_text"></h3>
                 </div>
                 
                 <hr>
@@ -124,6 +124,7 @@
         <script src="/view/criar.js"></script>
         <script src="/view/detalhes.js"></script>
         <script src="/view/deletar.js"></script>
+        <script src="/view/editar.js"></script>
 
     </body>
 </html>
