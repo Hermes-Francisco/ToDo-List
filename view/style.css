@@ -18,6 +18,10 @@ hr{
     border: 0;
 }
 
+#navcontent{
+    display: inline;
+}
+
 .tab{
     display: inline-block;
     height: 100%;
@@ -117,6 +121,18 @@ hr{
     font-size: 18px;
 }
 
+#details_edit, #details_create{
+    height: 250px;
+    width: 94%;
+    resize: none;
+}
+
+#title_edit, #title_create{
+    width: 94%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .options{
     display: flex;
 }
@@ -145,4 +161,24 @@ hr{
 
 .nao_cumprida{
     background-color: rgb(92, 92, 92);
+}
+
+.carregando{
+    display: block;
+    margin:0 auto;
+    max-height: fit-content;
+    background-color: white;
+    max-width: fit-content;
+    position: relative;
+    top: 25vh;
+}
+
+.carregando img{
+    margin: 40px;
+}
+
+#adicionar, #excluir_concluidas{
+    position: fixed;
+    top:4px;
+    right: 10px;
 }

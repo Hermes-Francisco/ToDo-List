@@ -8,12 +8,16 @@
     </head>
     <body>
         <div id="navbar">
-            <div id="todo_tab" class="tab selected_tab">
-                <h3 class="tab_text">A fazer</h3>
+            <div id="navcontent">
+                <div id="todo_tab" class="tab selected_tab">
+                    <h3 class="tab_text">A fazer</h3>
+                </div>
+                <div id="done_tab" class="tab">
+                    <h3 class="tab_text">Cumpridas</h3>
+                </div>
+                <button id="adicionar">+ Adicionar</button>
             </div>
-            <div id="done_tab" class="tab">
-                <h3 class="tab_text">Cumpridas</h3>
-            </div>
+
         </div>
         <div id="corpo" style="display: none;">
             <div class="task">
@@ -30,9 +34,24 @@
                     <a href="">Ver detalhes</a>
                 </div>
             </div>
+
+            <div class="task">
+                <div class = "task_header">
+                    <div class="task_number">
+                        <a href>1</a>
+                    </div>
+                    <div class="task_title">
+                        <h1>Hello teste</h1>
+                    </div>
+                </div>
+                <hr>
+                <div class="details_button">
+                    <a href="">Ver detalhes</a>
+                </div>
+            </div>
         </div>
 
-        <div id="detalhes">
+        <div id="detalhes" style="display: none;">
             <div class = "task task_details">
                 <div class="task_header">
                     <h1 class="title_input">Texto</h1>
@@ -43,10 +62,57 @@
                 </div>
                 <hr>
                 <div class="options">
-                    <button class="op_button nao_cumprida">Foi Concluida</button>
+                    <button class="op_button cumprida">Foi Concluida</button>
                     <button class="op_button editar">Editar</button>
                     <button class="op_button excluir">Excluir</button>
                 </div>               
+            </div>
+        </div>
+
+        <div id="editar" style="display: none;">
+            <div class = "task task_details">
+                <form onsubmit="update()">
+                    <input class="title_input" id="title_edit" type="text" name="taskName" required/>
+                    <textarea class="details_input" id="details_edit" name="details"></textarea>
+                    <hr>
+                    <div class="options">
+                        <input type="submit" class="op_button cumprida" value="Salvar" />
+                        <button class="op_button nao_cumprida">Cancelar</button>
+                    </div> 
+                </form>              
+            </div>
+        </div>
+
+        <div id="criar"  style="display: none;">
+            <div class = "task task_details">
+                <form onsubmit="create()">
+                    <input class="title_input" placeholder="Título da tarefa" id="title_create" type="text" name="taskName" required/>
+                    <textarea class="details_input" placeholder="Detalhes" id="details_create" name="details"></textarea>
+                    <hr>
+                    <div class="options">
+                        <input type="submit" class="op_button cumprida" value="Adicionar" />
+                        <button class="op_button nao_cumprida">Cancelar</button>
+                    </div> 
+                </form>              
+            </div>
+        </div>
+
+        <div id="carregando" style="display: none">
+            <div class = "carregando">
+                <img src="/view/carregando.gif" />            
+            </div>
+        </div>
+
+        <div id="mensagem" style="">
+            <div class = "task task_details message">
+                <div class="details_input">
+                    <text id="msg_text">aaaaaaaaaaaaaaaaaaa</text>
+                </div>
+                
+                <hr>
+                <div class="options">
+                    <button class="op_button editar">OK</button>
+                </div>
             </div>
         </div>
 
