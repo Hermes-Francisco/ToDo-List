@@ -1,4 +1,5 @@
 var id=null;
+var nome=null;
 
 function seeMore(taskId){
 
@@ -9,6 +10,7 @@ function seeMore(taskId){
     $.getJSON("/show/"+taskId, function(data){
         $("#detalhes_titulo").empty();
         $("#detalhes_titulo").append(data.taskName);
+        nome = data.taskName;
         $("#detalhes_texto").empty();
         $("#detalhes_texto").append(data.details);
 

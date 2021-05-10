@@ -54,8 +54,8 @@
                 <div class="options">
                     <button id="concluir" class="op_button cumprida">Foi Concluida</button>
                     <button id="desconcluir" style="display: none;" class="op_button nao_cumprida">A fazer</button>
-                    <button class="op_button editar">Editar</button>
-                    <button class="op_button excluir">Excluir</button>
+                    <button id="editar_tarefa" class="op_button editar">Editar</button>
+                    <button id="excluir_tarefa" class="op_button excluir">Excluir</button>
                 </div>               
             </div>
         </div>
@@ -110,12 +110,12 @@
         <div id="conf_excluir" style="display: none;">
             <div class = "task task_details message">
                 <div class="details_input msg_text">
-                    <h3 id="msg_text">Deseja mesmo excluir?</h3>
+                    <h3 id="excluir_msg">Deseja mesmo excluir?</h3>
                 </div> 
                 <hr>
                 <div class="options">
-                    <button class="op_button excluir">Sim</button>
-                    <button class="op_button cumprida">Não</button>
+                    <button id="sim" class="op_button excluir">Sim</button>
+                    <button id="nao" class="op_button cumprida">Não</button>
                 </div>
             </div>
         </div>
