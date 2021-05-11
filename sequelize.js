@@ -5,12 +5,13 @@ const sql = require('./config/database');
 class database{
     constructor(){
         try{
-            if(sql.dialect.toLowerCase == "sqlite"){
-              this.connect_sqlite()
-            }else{
-              this.connect_sql();
-            }
-              this.test();
+          this.sequelize = new Sequelize(sql.database, sql.username, sql.password, {
+            host: sql.host,
+            dialect: sql.dialect,
+            logging: false,
+            storage: './database/database.sqlite'
+          });
+          this.test();
         }catch(err){
           var msg = err.message.split(" ");
           if(msg[0]=="Please" && msg[1]=="install"){
@@ -23,23 +24,6 @@ class database{
           }      
         }
     }
-
-    connect_sqlite(){
-      this.sequelize = new Sequelize({
-        dialect: 'sqlite',
-        storage: './database/database.sqlite',
-        logging:false
-      })
-    }
-
-    connect_sql(){
-      this.sequelize = new Sequelize(sql.database, sql.username, sql.password, {
-        host: sql.host,
-        dialect: sql.dialect,
-        logging: false
-      });
-    }
-
     async test(){
         try {
             await this.sequelize.authenticate();
