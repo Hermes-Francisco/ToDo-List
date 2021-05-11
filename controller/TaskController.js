@@ -41,7 +41,7 @@ class TaskController{
     async Create(req, res){
         const { taskName, details } = req.body;
 
-        let order = await Task.count() + 1;
+        let order = await Task.count({where:{completed:false}}) + 1;
         
         await Task.create({
             taskName,
