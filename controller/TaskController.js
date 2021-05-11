@@ -55,7 +55,7 @@ class TaskController{
     }
 
     async Count(req, res){
-        return res.json(await Task.count())
+        return res.json(await Task.count({where:{completed:false}}))
     }
 
     async Update(req, res){
