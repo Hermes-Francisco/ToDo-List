@@ -8,10 +8,7 @@ class database{
             this.sequelize = new Sequelize(sql.database, sql.username, sql.password, {
                 host: sql.host,
                 dialect: sql.dialect,
-                logging: false,
-                define: {
-                  timestamps: true
-                }
+                logging: false
               });
               this.test();
         }catch(err){
@@ -19,7 +16,7 @@ class database{
           if(msg[0]=="Please" && msg[1]=="install"){
             console.log("Instalando a biblioteca "+msg[2]+" para acessar o banco de dados");
             shell.exec("npm add "+msg[2]);
-            this.test();
+            process.exit();
           }else{
             console.log(err.message);
             process.exit();
