@@ -1,6 +1,7 @@
-//Supported dialects: mssql, mariadb, mysql, postgres, and sqlite.
+//Dialetos suportados: mssql, mariadb, mysql, postgres, e sqlite.
+//Caso o dialeto seja SQLite, somente o dialeto será necessário
 module.exports = {
-    dialect: "",
+    dialect: "sqlite",
     host: "",
     database: "",
     username: "",
