@@ -113,16 +113,22 @@ class TaskController{
             let row = taskList.rows[i];
             await row.update({order: row.order - 1})
         }
-        await task.update({completed: true});
+        await task.update({
+            completed: true
+        });
 
         //colocando a task no lugar novo
 
         taskList = await Task.findAndCountAll({
             where:{
-                completed: false
+                completed: false,
             },
             order: [['order', 'asc']]
         })
+
+        await task.update({
+            completed: false
+        });
 
         for(var i = taskList.count -1; i >= newOrder-1; i--){
             let row = taskList.rows[i];
@@ -130,7 +136,6 @@ class TaskController{
             console.log
         }
         await task.update({
-            completed:false,
             order:newOrder
         });
 
