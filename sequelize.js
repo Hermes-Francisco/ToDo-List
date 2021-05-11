@@ -15,7 +15,7 @@ class database{
           var msg = err.message.split(" ");
           if(msg[0]=="Please" && msg[1]=="install"){
             console.log("Instalando a biblioteca "+msg[2]+" para acessar o banco de dados");
-            shell.exec("npm add "+msg[2]);
+            shell.exec("npm install "+msg[2]);
             process.exit();
           }else{
             console.log(err.message);
