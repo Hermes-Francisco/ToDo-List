@@ -41,7 +41,11 @@ class TaskController{
     async Create(req, res){
         const { taskName, details } = req.body;
 
-        let order = await Task.count({where:{completed:false}}) + 1;
+        let order = await Task.count({
+            where:{
+                completed:false
+            }
+        }) + 1;
         
         await Task.create({
             taskName,
@@ -55,7 +59,11 @@ class TaskController{
     }
 
     async Count(req, res){
-        return res.json(await Task.count({where:{completed:false}}))
+        return res.json(await Task.count({
+            where:{
+                completed:false
+            }
+        }))
     }
 
     async Update(req, res){
