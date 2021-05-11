@@ -17,7 +17,7 @@ class Reorder{
         })
             
         for(var i = taskList.count -1; i > task.order-1; i--){
-            let row = await Task.findByPk(taskList.rows[i].id)
+            let row = taskList.rows[i];
             await row.update({order: row.order - 1})
         }
         return next();
@@ -41,7 +41,7 @@ class Reorder{
         })
             
         for(var i = taskList.count -1; i > task.order-1; i--){
-            let row = await Task.findByPk(taskList.rows[i].id)
+            let row = taskList.rows[i];
             await row.update({order: row.order - 1})
         }
         return next();

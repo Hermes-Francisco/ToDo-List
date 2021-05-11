@@ -102,7 +102,7 @@ class TaskController{
         //retirando a tarefa do lugar
 
         for(var i = taskList.count -1; i > task.order-1; i--){
-            let row = await Task.findByPk(taskList.rows[i].id)
+            let row = taskList.rows[i];
             await row.update({order: row.order - 1})
         }
         await task.update({completed: true});
@@ -117,7 +117,7 @@ class TaskController{
         })
 
         for(var i = taskList.count -1; i >= newOrder-1; i--){
-            let row = await Task.findByPk(taskList.rows[i].id)
+            let row = taskList.rows[i];
             await row.update({order: row.order + 1})
             console.log
         }
