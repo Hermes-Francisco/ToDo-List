@@ -23,17 +23,16 @@ function update(){
         $("#title_edit").val(" ");
         $("#details_edit").val(" ");
         $("#msg_text").empty();
-        $("#msg_text").append(xhr.response.message);
-        $("#carregando").hide();
-        $("#mensagem").show();
+        if(xhr.status == 200){           
+            $("#msg_text").append(xhr.response.message);
+            $("#carregando").hide();
+            $("#mensagem").show();
+        }else{
+            $("#msg_text").append("Erro: "+xhr.response.erro);
+            $("#carregando").hide();
+            $("#mensagem").show();
+        }
     };
-
-    xhr.onerror = () =>{
-        $("#msg_text").empty();
-        $("#msg_text").append("Erro: "+xhr.response.erro);
-        $("#carregando").hide();
-        $("#mensagem").show();
-    }
     
     xhr.send(JSON.stringify({
         "id":id,

@@ -41,17 +41,16 @@ $("#concluir").click(function(){
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = () => {
         $("#msg_text").empty();
-        $("#msg_text").append('Tarefa marcada como "Cumprida"');
-        $("#carregando").hide();
-        $("#mensagem").show();
+        if(xhr.status == 200){           
+            $("#msg_text").append('Tarefa marcada como "cumprida"');
+            $("#carregando").hide();
+            $("#mensagem").show();
+        }else{
+            $("#msg_text").append("Erro: "+xhr.response.erro);
+            $("#carregando").hide();
+            $("#mensagem").show();
+        }
     };
-
-    xhr.onerror = () =>{
-        $("#msg_text").empty();
-        $("#msg_text").append("Erro: "+xhr.response.erro);
-        $("#carregando").hide();
-        $("#mensagem").show();
-    }
     
     xhr.send(JSON.stringify({
         "id":id,
@@ -70,17 +69,16 @@ $("#desconcluir").click(function(){
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = () => {
         $("#msg_text").empty();
-        $("#msg_text").append('A tarefa foi colocada no fim da lista "A fazer"');
-        $("#carregando").hide();
-        $("#mensagem").show();
-    };
-
-    xhr.onerror = () =>{
-        $("#msg_text").empty();
-        $("#msg_text").append("Erro: "+xhr.response.erro);
-        $("#carregando").hide();
-        $("#mensagem").show();
-    }
+            if(xhr.status == 200){           
+                $("#msg_text").append('Tarefa colocada no fim da lista "A fazer"');
+                $("#carregando").hide();
+                $("#mensagem").show();
+            }else{
+                $("#msg_text").append("Erro: "+xhr.response.erro);
+                $("#carregando").hide();
+                $("#mensagem").show();
+            }
+		};
     
     xhr.send(JSON.stringify({
         "id":id,
