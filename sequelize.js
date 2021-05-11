@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+const shell = require('shelljs');
 const sql = require('./config/database');
 
 class database{
@@ -14,8 +15,15 @@ class database{
               });
               this.test();
         }catch(err){
-          console.log(err.message) 
-          process.exit()         
+          var msg = err.message.split(" ");
+          if(msg[0]=="Please" && msg[1]=="install"){
+            console.log("Instalando a biblioteca "+msg[2]+" para acessar o banco de dados");
+            shell.exec("npm add "+msg[2]);
+            this.test();
+          }else{
+            console.log(err.message);
+            process.exit();
+          }      
         }
     }
 
