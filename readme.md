@@ -30,4 +30,4 @@ Sistema de lista de tarefas que permite que elas sejam organizadas em tarefas cu
 
  - Digitar no terminal o comando ``npm start``. Uma vez iniciado, o sistema irá instalar a biblioteca necessária para acessar o dialeto de banco de dados escolhido, automaticamente.
 
- **para acessar o sistema, digite "localhost:3000" na barra de URL de seu navegador** (eu testei o sistema usando o novo Edge baseado em Chromium)
+ **para acessar o sistema, digite "localhost:3000" na barra de URL de seu navegador** (eu testei o sistema usando um navegador baseado em Chromium)
