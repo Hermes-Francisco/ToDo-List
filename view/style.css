@@ -193,3 +193,8 @@ hr{
     height: 30px;
     margin:0;
 }
+
+.numberform input{
+    font-size: 18px;
+    max-width: 60px;
+}

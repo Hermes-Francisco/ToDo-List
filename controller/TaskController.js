@@ -54,6 +54,10 @@ class TaskController{
         return res.status(200).json({"message":"Tarefa criada com sucesso"})
     }
 
+    async Count(req, res){
+        return res.json(await Task.count())
+    }
+
     async Update(req, res){
         const { task, taskName, details, completed } = req.body;
         let { order } = req.body;
@@ -77,6 +81,52 @@ class TaskController{
         })
 
         return res.status(200).json({"message":"Tarefa atualizada"});
+    }
+
+    async toOrder(req, res){
+        const { id, newOrder } = req.body;
+
+        let task = await Task.findByPk(id);
+
+        if(newOrder == task.order || !newOrder || isNaN(newOrder)){
+            return res.status(200).json({"message": "não foi reordenado"})
+        }
+    
+        let taskList = await Task.findAndCountAll({
+            where:{
+                completed: false
+            },
+            order: [['order', 'asc']]
+        })
+        
+        //retirando a tarefa do lugar
+
+        for(var i = taskList.count -1; i > task.order-1; i--){
+            let row = await Task.findByPk(taskList.rows[i].id)
+            await row.update({order: row.order - 1})
+        }
+        await task.update({completed: true});
+
+        //colocando a task no lugar novo
+
+        taskList = await Task.findAndCountAll({
+            where:{
+                completed: false
+            },
+            order: [['order', 'asc']]
+        })
+
+        for(var i = taskList.count -1; i >= newOrder-1; i--){
+            let row = await Task.findByPk(taskList.rows[i].id)
+            await row.update({order: row.order + 1})
+            console.log
+        }
+        await task.update({
+            completed:false,
+            order:newOrder
+        });
+
+        return res.status(200).json({"message": "reordenado"})
     }
 
     async Delete(req, res){

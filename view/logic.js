@@ -51,8 +51,10 @@ function ToDo_index(){
                 $("#corpo").append(
                 '<div class="task">'+
                     '<div class = "task_header">'+
-                        '<div class="task_number" id="'+i+'">'+
-                            '<a href="#">'+data[i].order+'</a>'+
+                        '<div class="task_number" onclick="toOrder('+data[i].id+')">'+
+                            '<a href="#" class="number" id="number'+data[i].id+'">'+data[i].order+'</a>'+
+                            '<form class="numberform" id="form'+data[i].id+'" onsubmit="ordenar()" style="display:none">'+
+                            '<input type="number" min="1" value="'+data[i].order+'" id="'+data[i].id+'"/></form>'+
                         '</div>'+
                         '<div class="task_title">'+
                             '<h1>'+data[i].taskName+'</h1>'+
@@ -97,7 +99,7 @@ function done_index(){
                 $("#corpo").append(
                 '<div class="task">'+
                     '<div class = "task_header">'+
-                        '<div class="task_number" id="number'+i+'">'+
+                        '<div class="task_number">'+
                             '<img src="/view/pronto.png" height="30px"/>'+
                         '</div>'+
                         '<div class="task_title">'+
