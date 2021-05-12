@@ -133,7 +133,6 @@ class TaskController{
         for(var i = taskList.count -1; i >= newOrder-1; i--){
             let row = taskList.rows[i];
             await row.update({order: row.order + 1})
-            console.log
         }
         await task.update({
             order:newOrder
