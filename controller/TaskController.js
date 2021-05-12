@@ -121,7 +121,7 @@ class TaskController{
 
         taskList = await Task.findAndCountAll({
             where:{
-                completed: false,
+                completed: false
             },
             order: [['order', 'asc']]
         })
