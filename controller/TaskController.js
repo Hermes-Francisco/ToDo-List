@@ -130,7 +130,7 @@ class TaskController{
             let row = taskList.rows[i];
             await row.update({order: row.order + 1})
         }
-        let tarefa = task.update({
+        let tarefa = await task.update({
             order:newOrder,
             completed: false
         });
