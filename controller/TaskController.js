@@ -126,19 +126,16 @@ class TaskController{
             order: [['order', 'asc']]
         })
 
-        await task.update({
-            completed: false
-        });
-
         for(var i = taskList.count -1; i >= newOrder-1; i--){
             let row = taskList.rows[i];
             await row.update({order: row.order + 1})
         }
-        await task.update({
-            order:newOrder
+        let tarefa = task.update({
+            order:newOrder,
+            completed: false
         });
 
-        return res.status(200).json({"message": "reordenado"})
+        return res.status(200).json(tarefa)
     }
 
     async Delete(req, res){
