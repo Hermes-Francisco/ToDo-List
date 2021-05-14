@@ -111,9 +111,9 @@ class TaskController{
 
         for(var i = taskList.count -1; i > task.order-1; i--){
             let row = taskList.rows[i];
-            row.update({order: row.order - 1})
+            await row.update({order: row.order - 1})
         }
-        task.update({
+        await task.update({
             completed: true
         });
 
@@ -126,17 +126,19 @@ class TaskController{
             order: [['order', 'asc']]
         })
 
-        for(var i = taskList.count -1; i >= newOrder-1; i--){
-            let row = taskList.rows[i];
-            row.update({order: row.order + 1})
-        }
-        
-        let tarefa = task.update({
-            order:newOrder,
+        await task.update({
             completed: false
         });
 
-        return res.status(200).json(tarefa)
+        for(var i = taskList.count -1; i >= newOrder-1; i--){
+            let row = taskList.rows[i];
+            await row.update({order: row.order + 1})
+        }
+        await task.update({
+            order:newOrder
+        });
+
+        return res.status(200).json({"message": "reordenado"})
     }
 
     async Delete(req, res){
