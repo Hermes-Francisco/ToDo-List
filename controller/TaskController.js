@@ -111,9 +111,9 @@ class TaskController{
 
         for(var i = taskList.count -1; i > task.order-1; i--){
             let row = taskList.rows[i];
-            await row.update({order: row.order - 1})
+            row.update({order: row.order - 1})
         }
-        await task.update({
+        task.update({
             completed: true
         });
 
@@ -128,9 +128,10 @@ class TaskController{
 
         for(var i = taskList.count -1; i >= newOrder-1; i--){
             let row = taskList.rows[i];
-            await row.update({order: row.order + 1})
+            row.update({order: row.order + 1})
         }
-        let tarefa = await task.update({
+        
+        let tarefa = task.update({
             order:newOrder,
             completed: false
         });
